@@ -19,5 +19,9 @@
   "homepage": "https://github.com/gregdiaz/weatherProject#readme",
   "dependencies": {
     "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   }
 }
