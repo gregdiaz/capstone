@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/gregdiaz/capstone#readme",
   "dependencies": {
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "webpack": "^4.43.0",
