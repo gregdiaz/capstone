@@ -1,22 +1,24 @@
 {
-  "name": "weatherproject",
+  "name": "capstone",
   "version": "1.0.0",
   "description": "## Overview This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node src/server/server.js",
+    "build-prod": "webpack --config webpack.prod.js",
+    "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gregdiaz/weatherProject.git"
+    "url": "git+https://github.com/gregdiaz/capstone.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gregdiaz/weatherProject/issues"
+    "url": "https://github.com/gregdiaz/capstone/issues"
   },
-  "homepage": "https://github.com/gregdiaz/weatherProject#readme",
+  "homepage": "https://github.com/gregdiaz/capstone#readme",
   "dependencies": {
     "cors": "^2.8.5"
   },
