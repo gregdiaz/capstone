@@ -19,6 +19,8 @@ const port = 5000;
 const server = app.listen(port, ()=>{console.log(`Server Running on localhost: ${port}`)});
 
 app.get('/', function (req, res) {
+    debugger
+    console.log(res)
     res.send('GET request to the homepage');
 });
 
