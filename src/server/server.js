@@ -1,5 +1,6 @@
 // Setup empty JS object to act as endpoint for all routes
 projectData = [];
+var path = require('path')
 // Require Express to run server and routes
 const express = require('express');
 // Start up an instance of app
@@ -21,7 +22,7 @@ const server = app.listen(port, ()=>{console.log(`Server Running on localhost: $
 app.get('/', function (req, res) {
     debugger
     console.log(res)
-    res.send('GET request to the homepage');
+    res.sendFile(path.resolve('src/client/views/index.html'));
 });
 
 app.post('/', addEntry);
