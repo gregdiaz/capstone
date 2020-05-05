@@ -1,9 +1,8 @@
 /* Global Variables */
-const endpoint = "http://api.openweathermap.org/data/2.5/weather?zip=";
-const key = "6dce3e4c6dcdfaf69381d22179b69407";
+const endpoint = "http://api.geonames.org/findNearbyPostalCodes?postalcode=8775&country=";
+const key = "radius=10&username=magregor";
 var zip;
 const entries = [];
-var zz;
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
@@ -12,9 +11,9 @@ document.getElementById("generate").addEventListener('click',action);
 async function action (e) {
     e.preventDefault();
     e.stopPropagation();
-    zip = document.getElementById("zip").value;
+    city = document.getElementById("country").value;
     const content = document.getElementById('feelings').value;
-    const data = await getData(endpoint, zip, key);
+    const data = await getData(endpoint, city, key);
     Object.assign(data, { 
         newDate,
         content
@@ -31,7 +30,7 @@ async function action (e) {
     });
 }
 const getData = async(endpoint, zip, key) => {
-    const fetchApi = endpoint+zip+",us&appid="+key;
+    const fetchApi = endpoint+zip+key;
     const res = await fetch(fetchApi);
     try {
             const data = await res.json();
