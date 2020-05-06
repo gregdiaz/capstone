@@ -1,6 +1,6 @@
 /* Global Variables */
 const endpoint = "http://api.geonames.org/findNearbyPostalCodes?postalcode=8775&country=";
-const key = "radius=10&username=magregor";
+const key = "&radius=10&username=magregor";
 var zip;
 const entries = [];
 // Create a new date instance dynamically with JS
