@@ -21,30 +21,27 @@ async function action (e) {
     const element = document.getElementById("entryHolder");
     elementKeys = Object.keys(data);
 
-    for(let i=0; elementKeys >= i; i++){
-        let createDiv = document.createElement("div");
-        createDiv.setAttribute("id",info);
-        for(let j=0; elementKeys[i]< j; j++){
-            var createDivInter = document.createElement("div");
-            var Space = document.createElement("hr");
-        };      
-    };
-}
+//     for(let i=0; elementKeys >= i; i++){
+//         let createDiv = document.createElement("div");
+//         createDiv.setAttribute("id",info);
+//         for(let j=0; elementKeys[i]< j; j++){
+//             var createDivInter = document.createElement("div");
+//             var Space = document.createElement("hr");
+//         };      
+//     };
+// }
 
     
-    // elementKeys.forEach(info => {
-    //     let createDiv = document.createElement("div");
-    //     createDiv.setAttribute("id",info);
-    //     info.forEach(() =>{
-    //         var createDivInter = document.createElement("div");
-    //         var Space = document.createElement("hr");
-    //     });
-        // createDiv.appendChild(document.createTextNode(data[info]));
-        // console.log(document.createTextNode(data[info]));
-        // element.appendChild(createDiv);
-        
-//     });
-// }
+    elementKeys.forEach(info => {
+        let createDiv = document.createElement("div");
+        createDiv.setAttribute("id",info);
+        let createDivInter = document.createElement("div");
+        createDivInter.appendChild(document.createTextNode(data[info]));
+        createDiv.appendChild(createDivInter);
+        console.log(document.createTextNode(data[info]));
+        element.appendChild(createDiv);
+        });     
+ }
 const getData = async(endpoint) => {
     const res = await fetch(endpoint);
     try {
