@@ -1,7 +1,4 @@
 /* Global Variables */
-const endpoint = "http://api.geonames.org/findNearbyPostalCodes?postalcode=8775&country=";
-const key = "&radius=10&username=magregor";
-var zip;
 const entries = [];
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -11,30 +8,47 @@ document.getElementById("generate").addEventListener('click',action);
 async function action (e) {
     e.preventDefault();
     e.stopPropagation();
-    city = document.getElementById("country").value;
-    const content = document.getElementById('feelings').value;
-    const data = await getData(endpoint, city, key);
+    let country = document.getElementById("country").value;
+    let zip = document.getElementById("zip").value;
+    const endpoint = `http://api.geonames.org/postalCodeLookupJSON?postalcode=${zip}&country=${country}&username=magregor`
+    const data = await getData(endpoint);
+
     Object.assign(data, { 
-        newDate,
-        content
+        newDate
     });
-    const entry = await postData('/', data);
+    //const entry = await postData('/', data);
+    //console.log(entry);
     const element = document.getElementById("entryHolder");
-    elementKeys = Object.keys(entry);
-    elementKeys.forEach(info => {
+    elementKeys = Object.keys(data);
+
+    for(let i=0; elementKeys >= i; i++){
         let createDiv = document.createElement("div");
         createDiv.setAttribute("id",info);
-        createDiv.appendChild(document.createTextNode(entry[info]));
-        element.appendChild(createDiv);
-        
-    });
+        for(let j=0; elementKeys[i]< j; j++){
+            var createDivInter = document.createElement("div");
+            var Space = document.createElement("hr");
+        };      
+    };
 }
-const getData = async(endpoint, zip, key) => {
-    const fetchApi = endpoint+zip+key;
-    const res = await fetch(fetchApi);
+
+    
+    // elementKeys.forEach(info => {
+    //     let createDiv = document.createElement("div");
+    //     createDiv.setAttribute("id",info);
+    //     info.forEach(() =>{
+    //         var createDivInter = document.createElement("div");
+    //         var Space = document.createElement("hr");
+    //     });
+        // createDiv.appendChild(document.createTextNode(data[info]));
+        // console.log(document.createTextNode(data[info]));
+        // element.appendChild(createDiv);
+        
+//     });
+// }
+const getData = async(endpoint) => {
+    const res = await fetch(endpoint);
     try {
             const data = await res.json();
-            console.log(data)
             return data;
         }
     catch(error){
@@ -42,25 +56,22 @@ const getData = async(endpoint, zip, key) => {
         }
 };
 
-const postData = async(url ='/', data = {})=>{
-    console.log(JSON.stringify(data));
-    const res = await fetch(url,{
-        method:'POST',
-        credentials: 'same-origin',
-        headers:{
-            'Content-Type':'application/json',
-        },
-        body: JSON.stringify(data),
-    });
-    try {
-        const newData = await res.json();
-        console.log("Client" , newData);
-        return newData;
-    }
-catch(error){
-        console.log("error", error);
-    }
-};
-
-
-
+// const postData = async(url ='/', data = {})=>{
+//     console.log(JSON.stringify(data));
+//     const res = await fetch(url,{
+//         method:'POST',
+//         credentials: 'same-origin',
+//         headers:{
+//             'Content-Type':'application/json',
+//         },
+//         body: JSON.stringify(data),
+//     });
+//     try {
+//         const newData = await res.json();
+//         console.log("Client" , newData);
+//         return newData;
+//     }
+// catch(error){
+//         console.log("error", error);
+//     }
+// };
