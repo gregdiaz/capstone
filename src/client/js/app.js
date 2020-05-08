@@ -16,32 +16,18 @@ async function action (e) {
     Object.assign(data, { 
         newDate
     });
-    //const entry = await postData('/', data);
-    //console.log(entry);
+
     const element = document.getElementById("entryHolder");
-    elementKeys = Object.keys(data);
-
-//     for(let i=0; elementKeys >= i; i++){
-//         let createDiv = document.createElement("div");
-//         createDiv.setAttribute("id",info);
-//         for(let j=0; elementKeys[i]< j; j++){
-//             var createDivInter = document.createElement("div");
-//             var Space = document.createElement("hr");
-//         };      
-//     };
-// }
-
-    
-    elementKeys.forEach(info => {
-        let createDiv = document.createElement("div");
-        createDiv.setAttribute("id",info);
+    let createDiv = document.createElement("div");
+    createDiv.setAttribute("id","EntryInfo");
+    data.postalcodes.forEach(info => {
         let createDivInter = document.createElement("div");
-        createDivInter.appendChild(document.createTextNode(data[info]));
+        createDivInter.appendChild(document.createTextNode(JSON.stringify(info,undefined,2)));
         createDiv.appendChild(createDivInter);
-        console.log(document.createTextNode(data[info]));
-        element.appendChild(createDiv);
-        });     
- }
+        createDivInter.setAttribute("id",info.placeName);
+    });
+        element.appendChild(createDiv);    
+}
 const getData = async(endpoint) => {
     const res = await fetch(endpoint);
     try {
