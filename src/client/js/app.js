@@ -3,10 +3,14 @@ import { Container, GeonamesEntry, WeatherBi, PixaBay } from '/src/client/js/ui.
 
 /* Global Variables */
 const picKey = "16477521-cf7894caf3d4932481ff6d4e3";
+const whatherKey = "8ecd20f53453441b9064673acf586e0e";
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let newDate = d.getFullYear()+'-'+ d.getMonth()+'-'+ (d.getDate() - 1);
+let currentDate = d.getFullYear()+'-'+ d.getMonth()+'-'+ d.getDate();
 document.getElementById("generate").addEventListener('click',action);
+
+
 
 export async function action (e) {
     var country = document.getElementById("country").value;
@@ -14,7 +18,7 @@ export async function action (e) {
     const container = Container();
 
     const endPoint = `http://api.geonames.org/postalCodeLookupJSON?postalcode=${zip}&country=${country}&username=magregor`
-    const endpointWeatherBi = `http://api.weatherbit.io/v2.0/current?city=Raleigh,NC&key=8ecd20f53453441b9064673acf586e0e`;
+    const endpointWeatherBi = `https://api.weatherbit.io/v2.0/history/daily?postal_code=${zip}&country=${country}&start_date=${newDate}&end_date=${currentDate}&key=${whatherKey}`;
     const picendpoint = `https://pixabay.com/api/?key=${picKey}&q=yellow+flowers&image_type=photo`;
 
     var dataPostal = await getData(endPoint);
