@@ -6,7 +6,5 @@ test('Checking the Function Geonames', () => {
 });
 
 test('Checking the Function Pic', () => {
-    functionality.PixaBay(data);
+    dataApp.PixaBay(data);
 });
-
-
