@@ -1,5 +1,7 @@
 
 import { Container, GeonamesEntry, WeatherBi, PixaBay } from '/src/client/js/ui.js';
+import '/src/client/styles/style.scss'
+import '/src/client/styles/media.scss'
 
 /* Global Variables */
 const picKey = "16477521-cf7894caf3d4932481ff6d4e3";
