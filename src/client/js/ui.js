@@ -4,7 +4,7 @@ export function Container(){
     return container;
 };
 
-export function WeatherEntry(postCodeData) {
+export function GeonamesEntry(postCodeData) {
     const entries = postCodeData.map(function ({ countryCode, lat, lng }) {
         const entry = document.createElement("div");
         const country = document.createElement("p");
@@ -22,5 +22,44 @@ export function WeatherEntry(postCodeData) {
         return entry;
     });
 
+    return entries;
+}
+export function WeatherBi(data){
+    const entries = data.map(function ({ timezone, ob_time, city_name }) {
+        const entry = document.createElement("div");
+        const timeZoneP = document.createElement("p");
+        const timeText = document.createElement("p");
+        const cityText = document.createElement("p");
+        
+        timeZoneP.innerText = `Time Zone: ${timezone}`;
+        timeText.innerText = `Time: ${ob_time}`;
+        cityText.innerText = `City: ${city_name}`;
+
+        entry.classList.add("entry");
+        entry.appendChild(timeZoneP);
+        entry.appendChild(timeText);
+        entry.appendChild(cityText);
+        return entry;
+    });
+    return entries;
+}
+
+export function PixaBay(data){
+    const entries = data.map(function ({ id, pageUrl, user }) {
+        const entry = document.createElement("div");
+        const idInfo = document.createElement("p");
+        const pageUrlP = document.createElement("p");
+        const userinfo = document.createElement("p");
+        
+        idInfo.innerText = `Id: ${id}`;
+        pageUrlP.innerText = `Page URL: ${pageUrl}`;
+        userinfo.innerText = `User Name: ${user}`;
+
+        entry.classList.add("entry");
+        entry.appendChild(idInfo);
+        entry.appendChild(pageUrlP);
+        entry.appendChild(userinfo);
+        return entry;
+    });
     return entries;
 }
