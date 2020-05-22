@@ -1,4 +1,4 @@
-// import {createElements} from './weatherbi.js';
+
 import { Container, GeonamesEntry, WeatherBi, PixaBay } from '/src/client/js/ui.js';
 
 /* Global Variables */
@@ -7,23 +7,6 @@ const picKey = "16477521-cf7894caf3d4932481ff6d4e3";
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 document.getElementById("generate").addEventListener('click',action);
-
-// export function formValue(){
-//     var country = document.getElementById("country").value;
-//     var zip = document.getElementById("zip").value;
-//     // var r = [];
-//     // r = push.country;
-//     // r = push.zip;
-//     // return r;
-//     const endpoint = `http://api.geonames.org/postalCodeLookupJSON?postalcode=${zip}&country=${country}&username=magregor`
-//     action(endpoint)
-// }
-
-// function createElements(){
-//     let createDiv = document.createElement("div");
-//     createDiv.setAttribute("id","value");
-//     var createhr = document.createElement("hr");
-//     }
 
 export async function action (e) {
     var country = document.getElementById("country").value;
@@ -62,48 +45,8 @@ export async function action (e) {
 
     });
 
-
-
     document.getElementById("entryHolder").appendChild(container);
-
-//     let createDiv = document.createElement("div");
-//     createDiv.setAttribute("id","value");
-//     var createhr = document.createElement("hr");
-
-//     data.postalcodes.forEach(info => {
-//         createDivInter = document.createElement("div");
-//         createDivInter.appendChild(document.createTextNode(JSON.stringify(info,undefined,2)));
-//         createDiv.appendChild(createDivInter);
-//         createDivInter.setAttribute("id",info.placeName); 
-//     });
-//         element.appendChild(createDiv);
-//         element.appendChild(createhr);
-
-//         let createDivWeather = document.createElement("div");
-//         createDivWeather.setAttribute("id","Weather");
-//         const weather = await getData(endpointweatherbi);
-
-//         weather.data.forEach(info => {
-//             let createDivInter = document.createElement("div");
-//             createDivInter.appendChild(document.createTextNode(JSON.stringify(info,undefined,2)));
-//             createDivInter.setAttribute("id",info.country_code);
-//             createDivWeather.appendChild(createDivInter);  
-//         });
-//         element.appendChild(createDivWeather);
-//         element.appendChild(createhr);
-
-//         let createDivpic= document.createElement("div");
-//         createDivpic.setAttribute("id","Pic");
-//         const picapi = await getData(picendpoint);
-//         picapi.hits.forEach(info => {
-//             let createDivInter = document.createElement("div");
-//             createDivInter.appendChild(document.createTextNode(JSON.stringify(info,undefined,2)));
-//             createDivInter.setAttribute("id",info.user);
-//             createDivpic.appendChild(createDivInter);  
-//         });
-//         element.appendChild(createDivpic); 
-
- }
+}
 const getData = async(endpoint) => {
     const res = await fetch(endpoint);
     try {
