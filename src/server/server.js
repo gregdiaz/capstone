@@ -14,28 +14,11 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 // Initialize the main project folder
-app.use(express.static('website'));
+app.use(express.static(path.join(__dirname, '../../dist')));
 const port = 5000;
 // Setup Server
 const server = app.listen(port, ()=>{console.log(`Server Running on localhost: ${port}`)});
 
 app.get('/', function (req, res) {
-    debugger
-    console.log(res)
-    res.sendFile(path.resolve('src/client/views/index.html'));
+    return res.sendFile('index.html');
 });
-
-app.post('/', addEntry);
-
-function addEntry(req,res){
-    console.log("Body", req.body);
-    newEntry = {
-        date: req.body.newDate,
-        temp:req.body.main.temp,
-        content:req.body.content
-    }
-    projectData.push(newEntry);
-    console.log("server", projectData);
-    res.send(newEntry);
-};
-
