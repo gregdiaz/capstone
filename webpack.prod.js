@@ -2,9 +2,14 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: './src/client/index.js',
+    entry:{
+        css: './src/client/index.js',
+        app: './src/client/js/app.js'
+    },
     mode: 'production',
     devtool: 'source-map',
     stats: 'verbose',
@@ -12,7 +17,14 @@ module.exports = {
         rules: [
             {
                 test: /\.scss$/,
-                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+                use: [                     
+                    // fallback to style-loader in development
+                    process.env.NODE_ENV !== 'production'
+                        ? 'style-loader'
+                        : MiniCssExtractPlugin.loader,
+                        'css-loader',
+                        'sass-loader',
+                    ]
             },
             {
                 test: '/\.js$/',
@@ -22,6 +34,10 @@ module.exports = {
             
         ]
     },
+    output: {
+        libraryTarget: 'var',
+        library: 'Client'
+    },
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/client/views/index.html",
@@ -30,12 +46,19 @@ module.exports = {
         }),
         new CleanWebpackPlugin({
             // Simulate the removal of files
-            dry: true,
+            dry: false,
             // Write Logs to Console
             verbose: true,
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        }) 
+        }),
+        new WorkboxPlugin.GenerateSW(),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: '[name].css',
+            chunkFilename: '[id].css',   
+        }),
     ]   
 }

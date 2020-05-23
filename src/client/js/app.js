@@ -1,5 +1,4 @@
-
-import { Container, GeonamesEntry, WeatherBi, PixaBay } from '/src/client/js/ui.js';
+import { Container, GeonamesEntry, WeatherBi, PixaBay } from './ui.js';
 // import '/src/client/styles/style.scss'
 // import '/src/client/styles/media.scss'
 
@@ -11,8 +10,6 @@ let d = new Date();
 let newDate = d.getFullYear()+'-'+ d.getMonth()+'-'+ (d.getDate() - 1);
 let currentDate = d.getFullYear()+'-'+ d.getMonth()+'-'+ d.getDate();
 document.getElementById("generate").addEventListener('click',action);
-
-
 
 export async function action (e) {
     var country = document.getElementById("country").value;
@@ -43,7 +40,6 @@ export async function action (e) {
 
     weather.forEach(function (entry){
         container.appendChild(entry);
-
     });
 
     pic.forEach(function (entry){

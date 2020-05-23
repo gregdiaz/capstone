@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <title>Capstone</title>
 <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-<link type="text/css" href="/src/client/styles/style.css">
-<link type="text/css" href="/src/client/styles/media.css">
 </head>
  <body>
 <div id = "app">
@@ -16,19 +14,35 @@
     <p><label for="zip">Enter Zipcode here</label>
     <input type="text" id="zip" placeholder="Enter zip code here"> </p>
   </div>
-  <div class ="holder feel">
+  <div class ="countryCode">
   <p><label for="info">Country Code</label>
-    <input class= "myInput" id="country" placeholder="Country Info Code" rows="9" cols="50"></input></p>
+     <input class= "myInput" id="country" placeholder="Country Info Code" rows="9" cols="50"></input></p>
+  </div>
+  <div class= "startdate">
+     <label for="start">Start Date</label>
+    <input type="date" class= "myInput" id="startdate" rows="9" cols="50"></input></p>
+  </div>
+  <div class="endDate">
+    <label for="start">End Date</label>
+    <input type="date" class= "myInput" id="enddate" rows="9" cols="50"></input></p>
   </div>
   <div class="holder btn">
     <p><button id="generate" type = "submit"> Generate </button></p>
   </div>
-  <div class ="holder entry">
+  <textarea class="holder entry" id="entryHolder" rows="4" cols="50">
+  <!-- <div class ="holder entry"> -->
     <div class = "title">Most Recent Entry</div>
-    <div id = "entryHolder">
-    </div>
-  </div>
-</div>
-<script src="/src/client/js/app.js" type="module"></script>
+    <div id = "entryHolder"></div>
+  <!-- </div> -->
+</textarea>
+<script>
+// Check that service workers are supported
+if ('serviceWorker' in navigator) {
+    // Use the window load event to keep the page load performant
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+    });
+}
+</script>
 </body>
 </html>
