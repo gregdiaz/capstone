@@ -8,32 +8,23 @@
  <body>
 <div id = "app">
   <div class ="holder headline">
-   <p> Capstone App typed your zip Code and the country </p>
+    Capstone App typed your zip Code and the country
   </div>
   <div class ="holder zip">
-    <p><label for="zip">Enter Zipcode here</label>
-    <input type="text" id="zip" placeholder="Enter zip code here"> </p>
+    <label for="zip">Enter Zipcode here</label>
+    <input type="text" id="zip" placeholder="Enter zip code here">
   </div>
   <div class ="countryCode">
-  <p><label for="info">Country Code</label>
-     <input class= "myInput" id="country" placeholder="Country Info Code" rows="9" cols="50"></input></p>
-  </div>
-  <div class= "startdate">
-     <label for="start">Start Date</label>
-    <input type="date" class= "myInput" id="startdate" rows="9" cols="50"></input></p>
-  </div>
-  <div class="endDate">
-    <label for="start">End Date</label>
-    <input type="date" class= "myInput" id="enddate" rows="9" cols="50"></input></p>
+    <label for="info">Country Code</label>
+    <input class= "myInput" id="country" placeholder="Country Info Code" rows="9" cols="50"></input></p>
   </div>
   <div class="holder btn">
-    <p><button id="generate" type = "submit"> Generate </button></p>
+    <button id="generate" type = "submit"> Generate </button>
   </div>
-  <textarea class="holder entry" id="entryHolder" rows="4" cols="50">
-  <!-- <div class ="holder entry"> -->
+  <div class ="holder entry">
     <div class = "title">Most Recent Entry</div>
     <div id = "entryHolder"></div>
-  <!-- </div> -->
+  </div>
 </textarea>
 <script>
 // Check that service workers are supported
