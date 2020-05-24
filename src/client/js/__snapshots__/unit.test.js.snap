@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GeonamesEntry should return an array with one element 1`] = `
+<div
+  class="entry"
+>
+  <p />
+  <p />
+  <p />
+</div>
+`;

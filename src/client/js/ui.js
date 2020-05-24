@@ -4,7 +4,7 @@ export function Container(){
     return container;
 };
 
-export function GeonamesEntry(postCodeData) {
+export function GeonamesEntry(postCodeData = []) {
     const entries = postCodeData.map(function ({ countryCode, lat, lng }) {
         const entry = document.createElement("div");
         const country = document.createElement("p");
@@ -12,6 +12,7 @@ export function GeonamesEntry(postCodeData) {
         const lngText = document.createElement("p");
         
         country.innerText = `Contry Code: ${countryCode}`;
+        console.log(country.innerText);
         latText.innerText = `Latitud: ${lat}`;
         lngText.innerText = `Longitud: ${lng}`;
 
@@ -45,19 +46,20 @@ export function WeatherBi(data){
 }
 
 export function PixaBay(data){
-    const entries = data.map(function ({ id, pageUrl, user }) {
+    const entries = data.map(function ({ id, previewURL, user }) {
         const entry = document.createElement("div");
         const idInfo = document.createElement("p");
-        const pageUrlP = document.createElement("p");
+        const previewImg = document.createElement("img");
+        
         const userinfo = document.createElement("p");
         
         idInfo.innerText = `Id: ${id}`;
-        pageUrlP.innerText = `Page URL: ${pageUrl}`;
+        previewImg.setAttribute("src", previewURL );
         userinfo.innerText = `User Name: ${user}`;
 
         entry.classList.add("entry");
         entry.appendChild(idInfo);
-        entry.appendChild(pageUrlP);
+        entry.appendChild(previewImg);
         entry.appendChild(userinfo);
         return entry;
     });

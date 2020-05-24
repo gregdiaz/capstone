@@ -5,9 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "start": "node src/server/server.js",
-    "prod": "webpack --config webpack.prod.js",
-    "dev": "webpack-dev-server  --config webpack.dev.js --open"
+    "prod": "NODE_ENV=prod webpack --config webpack.config.js && npm start",
+    "dev": "webpack-dev-server --config webpack.config.js --open"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
   "homepage": "https://github.com/gregdiaz/capstone#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "workbox-webpack-plugin": "^5.1.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",

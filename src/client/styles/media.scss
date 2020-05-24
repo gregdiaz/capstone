@@ -3,93 +3,28 @@
 {
     body
     {
-        background-image: none;
-        background-color: black !important;
+        background: #ADD8E6 !important;
+        margin: 2px !important;
     }
 
-    .menu{
-        grid-area: menu;
-        width: auto !important;
-        font-size:1em;
-        position: sticky;
-        top: 0;
-        background-color: black;
+    .holder{
+        width: 650px !important;
+        height: 36px;
     }
 
-    .menu a {
-        color: white;
-        font-weight: bold;
-        font-family: Lemonada;
+    .entry{
+        width: 650px !important;
     }
 
-    .header{
-        grid-area: hd;
+    button{
+        width: 185px !important;
+        height: 63px !important;
+        margin: 18px !important;
     }
-
-    .author{
-        position: relative !important;
-        top: 0px;
-        font-size: 12px;   
-        grid-area: au;
-        display: flex;
-        flex-direction: row-reverse;
-        margin: 0;
-        max-width: none;
-        height: 62px;
-    }
-
-    .author h4{
-        margin: 26px;
-        margin-right: 4px;
-    }
-
-    .main{
-        grid-area: main;
-        margin-top: 27px;
-        margin-right: 30px;
-    }
-
-    img{
-        margin: auto;
-    } 
-
-    p{
-       font-size:1em;
-    }
-
-    .position {
-        grid-area: au;
-        padding: 1px;
-    }
-
-    .author img{
-        width: 57px;
-        margin: 5px;
-    }
-
-    .author em{
-        display: none;
-    }
-
-
-    .footer{ 
-        grid-area: ft;
-        max-width: 98%;
-        margin-left: 3%;
-        margin-right: 30px;
-    }
-
-    .menustyle h2, hr{
-        display:none;
-    }
-
-    .menustyle{
-        display: flex;
-        flex-direction: row;
-    }
-
-    .menustyle a {
-        padding-right: 40px;
+    #entryHolder {
+        color:white !important;
+        width: 650px !important;
+        height: 558px !important;
     }
 }
 
@@ -99,62 +34,71 @@
     body
     {
         background-image: none;
-        background-color: white;
-        font-size: small;
+        background-color: #ADD8E6 !important;
+        margin: 2px !important;
     }
-
-    .container{
-        margin: 0;
-        display: grid;
-        max-width: 93%;
-        grid-template-rows: 28px 4px 37px auto 105px;
-        grid-template-columns: 350px;
+    #app{
+        margin: 5px !important;
+        grid-auto-rows: 67px !important;
+        grid-template-columns: 100% !important;
         grid-template-areas:
-        "menu" 
         "hd" 
-        "au" 
-        "main" 
-        "ft";
+        "zip"
+        "code"
+        "btn"
+        "result" !important;
+    }
+    .headline{
+        font-size: 16px !important;
+        font-style: bold;
+    } 
+    button{
+        font-size: small !important;
+        width: 97px !important;
+        height: 52px !important;
+        margin: -4px !important
     }
 
-    .header{
-        grid-area: hd;
-        display: flex;
-        justify-content: center;
-        color: #01adb9;
-        margin: -7px;
-     }
-
-     .header h1 {
-        font-size: 19px;
-     }
-
-    .menustyle{
-        margin: 3px;
+    .holder.zip{
+        margin-left: 119px;
     }
 
-    .author img{
-        display: none;
+    .btn{
+        margin-left: 151px;
+        padding-top: 9px;
     }
 
-    .author{
-        margin: 5px;
+    #entry {
+        width: 360px !important;
+        height: 421px !important;
     }
 
-    .main{
-        display: flex;
-        flex-wrap: nowrap;
+    label{
+        font-size: 16px;
     }
 
-    img {
-        max-width: 258px;;
-
+    input{
+        color:white;
+        font-size: 16px;
+        height: 36px;
     }
 
-    #btn{
-        margin: 4px;
-        font-size: 15px;
-        padding: 0px 15px 1px;
-        font-size: 12px !important;
+    .holder{
+        width: 357px !important;
     }
+
+    .entry{
+        width: 357px !important;
+        margin-left: 10px;
+    }
+
+    #entryHolder{
+        width: 357px !important;
+        font-size: 16px;
+    }
+
+    .title{
+        font-size: 16px !important;
+    }
+
 }
