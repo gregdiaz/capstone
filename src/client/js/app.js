@@ -3,10 +3,10 @@ import { Container, GeonamesEntry, WeatherBi, PixaBay } from './ui.js';
 /* Global Variables */
 const picKey = "16477521-cf7894caf3d4932481ff6d4e3";
 const whatherKey = "8ecd20f53453441b9064673acf586e0e";
-// Create a new date instance dynamically with JS
-//document.getElementById("generate").addEventListener('click',action);
 
-export async function action (e) {
+// Create an Action function instance dynamically with JS
+
+export default async function action (e) {
     var country = document.getElementById("country").value;
     var zip = document.getElementById("zip").value;
     const container = Container();
@@ -17,11 +17,6 @@ export async function action (e) {
     var dataPostal = await getData(endPoint);
     var data = await getData(endpointWeatherBi);
     var Pics = await getData(picendpoint);
-
-    console.log(data);
-//    Object.assign(dataPostal, { 
-//        newDate
-//    });
 
     const entries = GeonamesEntry(dataPostal.postalcodes);
     const weather = WeatherBi(data.data);

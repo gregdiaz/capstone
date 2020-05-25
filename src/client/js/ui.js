@@ -12,7 +12,6 @@ export function GeonamesEntry(postCodeData = []) {
         const lngText = document.createElement("p");
         
         country.innerText = `Contry Code: ${countryCode}`;
-        console.log(country.innerText);
         latText.innerText = `Latitud: ${lat}`;
         lngText.innerText = `Longitud: ${lng}`;
 
