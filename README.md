@@ -64,7 +64,8 @@ npm run test:watch
 
 ```python
 Important once the build has been run, you have to type at the address following:
-http://localhost:8080/ (If you want to run the Develop environment)
+http://localhost:8080/ (If you want to run the Develop environment) the command npm run dev
 http://localhost:5000/ (If you want to run the prod) don't forget the command npm start
+
 
 For the correct use you have to type the Zipcode and the Code city and you will see list with the information about the search.
